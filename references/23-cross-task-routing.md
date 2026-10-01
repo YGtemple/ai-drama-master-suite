@@ -59,7 +59,7 @@
 | `ai-story-vault` | 联网搜最新爆款数据、拆解热门AI短片，数据驱动选题 | 阶段①不知道拍什么/要参考爆款时 |
 | `blockbuster-script-director` | 有小说/梗概/旧剧本要改编/升级为短剧（五重身份诊断） | 有原作要改编时；从零原创走主技能模块1 |
 | `drama-storyboard-director` | 强节奏短剧分镜（15秒一段/每镜≤6秒/爽点快切） | 要强节奏爽点分镜时；要电影级镜头语言走模块2＋[14](14-cinematic-vocabulary.md) |
-| `script-asset-master` | 把剧本拆成场景空镜/角色四宫格/道具静物三类资产卡（纯中文生图提示词） | 模块2.5资产准备；**复刻已有视频时必启动它重做三资产再 @图片**（见 [18](18-lessons-learned-remake.md)/[19](19-success-case-ayong.md)） |
+| `script-asset-master` | 把剧本拆成场景空镜/角色四宫格/道具静物三类资产卡（纯中文生图提示词） | 模块2.5美术资产，**每个项目（原创/有参考）必需**；有参考时三资产全部重做、不搬运原片（见 [18](18-lessons-learned-remake.md)/[19](19-success-case-ayong.md)） |
 | `video-prompt-master` | 电商TVC/宋式田园/中式巨物/AI高燃打斗四类专项提示词 | 专项题材提示词；通用短剧提示词走模块3 |
 | `doubao-creative-drama` | 短篇短剧规划与资产分批确认规范（planner→…→prompt） | 高一致性要求的短篇项目启动规划 |
 | `jimeng-studio` / `jimeng-director` | 即梦平台前期/后期适配（多风格引擎、批量调度） | 用户明确要即梦平台风格时；默认走主技能 |
@@ -232,8 +232,8 @@ A：**脸不崩 ＋ 服装同阶段锁死**是 P0 红线。每镜抽帧核对面
 **Q11：一个分镜组/片段做多长？**
 A：分镜组时长 **5–30 秒灵活**（不是固定15秒），按故事信息量自然定。格式见 [22](22-15s-storyboard-group-template.md)。
 
-**Q12：要复刻/改编一个已有视频怎么办？**
-A：**必启动 `script-asset-master` 重做场景/角色/道具三资产**，再 @图片 图生视频；不要直接拿原片音频硬拼（会嘴型错位）。踩坑经验（删广告段补铺垫、同角色不同年龄段同一张脸、ffmpeg拼接）见 [18](18-lessons-learned-remake.md)、[19](19-success-case-ayong.md)。
+**Q12：有参考原片/参考图要做（改编/二创）怎么办？**
+A：这是统一流程的「有参考分支」：先拆解参考（转写逐字稿+抽帧，识别剧情顺序/站位/机位），再启动 `script-asset-master` 重做场景/角色/道具三资产（**不搬运原片素材**），然后逐镜对齐参考的场景/剧情顺序/台词/站位/机位、@图片图生视频。无参考的原创项目跳过拆解对齐，其余流程一致。踩坑经验见 [18](18-lessons-learned-remake.md)、[19](19-success-case-ayong.md)。
 
 **Q13：支持哪些平台下载？**
 A：快手、B站、AcFun、CCTV、芒果TV、梨视频、搜狐、腾讯、微博、X、Facebook、Instagram、TikTok、Twitch、YouTube、直链、本地视频。见任务D。

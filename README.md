@@ -1,89 +1,95 @@
-# ai-drama-master-suite · AI 短剧全链路制作套件
+<div align="right">
 
-> 一句话简介：从剧本到成片的完整方法论 + 四部真实片子的使用记录。`SKILL.md` 125 KB 定义方法，`cases/` 里是方法怎么用的。
+**[English](README.md)** · [简体中文](README.zh-CN.md)
 
-## 一、仓库结构
+</div>
+
+# ai-drama-master-suite
+
+A production pipeline for AI short drama — `SKILL.md` defines the method, `cases/` shows it applied to four films.
+
+<sub>125 KB `SKILL.md` · four production records</sub>
+
+---
+
+## What this is
+
+Not a "one-click short drama generator". A **constraint system** — contracts, assertions and checklists that hold the non-determinism of generation inside an acceptable range.
 
 ```
-ai-drama-master-suite/
-├── SKILL.md                    # 125 KB 方法论主文件
-├── references/                 # 方法库（分主题参考）
-└── cases/                      # 实际使用记录（原两个独立仓库，已合并）
-    ├── ai-drama-asset-prompts/ # 资产提示词工程
-    └── ai-film-production/     # 影视生产方法论
+SKILL.md          the method, 125 KB
+references/       topic-specific reference material
+cases/            four films, start to finish
 ```
 
-**为什么合并**：`SKILL.md` 是方法的**定义**，原来的两个仓库是方法在四部片子上的**使用日志**。定义和案例本来就该放一起，否则读者要跨三个仓库才能把一件事看明白。
+Method and evidence sit together on purpose. Read the rule, then read what happened when it was applied.
 
-## 二、方法论覆盖什么
+## What the method covers
 
-| 环节 | 内容 |
+| Stage | Content |
 |---|---|
-| 剧本 | 三层结构（故事/隐喻/意图）、伏笔物件清单 |
-| 资产 | 跨龄面容锚定、道具状态拆分、材质排他 |
-| 分镜 | 摄影四参数、配音指令四段式、轴线规则 |
-| 视频 | 首图与角色图分离 @、逐段确认、废片归档 |
+| Script | three-layer structure (story / metaphor / intent), setup→payoff object list |
+| Assets | cross-age face anchoring, prop state splitting, material exclusion |
+| Storyboard | four camera parameters, four-part vocal direction, axis rules |
+| Video | first-frame vs character reference separation, per-segment sign-off, scrapped-take archiving |
 
-## 三、四部实际案例
+## The four cases
 
-都在 `cases/` 下，每部都能看到方法是怎么落地的。
+Each is worth reading for a specific reason.
 
-### 《反话》—— 灵魂相伴题材
+### 反话 — a soul-companion story
 
-- **资产包**：角色 10 / 场景 10 / 道具 4，完整的提示词卡片
-- **剧本格式**：给 AI 直接消费的格式规范（三行头、画面台词分离、音效单列）
-- **分镜总纲**：16 组 / 约 6 分钟，含道具连续性表与 ASCII 俯视图
+The **prop continuity table** is the part to look at. A single eraser runs across ten scenes through eight states — lent, gifted, filed alongside its old twin, pressed under a thermos, dropped, accumulated, worn to a stub, reset. Marked *must not skip*.
 
-最值得看的是**道具连续性表**——白橡皮一条线跨 10 场，经历借出/赠送/并放/压制/落地/累积/磨剩/重置八个状态，标注「不可跳变」。
+Prop drift is one of the first things generation gets wrong, and one of the hardest to notice before the cut.
 
-### 《国家的孩子》—— 纪录片复刻
+### 国家的孩子 — documentary reconstruction
 
-- **风格分析**：35 帧逐帧归类到六种景别，算出占比反推叙事重心（近景+特写 43% → 面部细节必须写足）
-- **v1→v2 演进**：从「自编版」到「原片台词版」的五个迭代方向
+35 frames classified into six shot scales, percentages computed, and the narrative centre derived from the distribution: close-ups and near shots total 43%, therefore the asset cards must specify facial detail — high-altitude flush, skin texture, wrinkle depth — in full.
 
-### 《一会儿》—— 狗视角第一人称
+Every claim carries a frame number, so a later check can return to the evidence.
 
-- **叙事视角厘清报告**：把「我·你·他·它」到底归谁做成一张人称表
+### 一会儿 — first-person dog
 
-这份的价值在**把主观争议转成可执行口径**：用户两次反馈看似矛盾（J02 接受「我是狗」、J03 却炸毛），报告不争论对错，直接指出病根——「句子没写清谁在做动作，是写法病不是视角选错了」。
+A report that turns a subjective disagreement into a **pronoun table**. Two rounds of feedback looked contradictory until the real issue was named: the sentence did not say who performs the action, so the reader attached "I" to the boy visible on screen.
 
-### 《凝视的接力》—— 代际凝视
+A writing fault, not a wrong choice of viewpoint. The table then fixes each pronoun to one referent for the whole film.
 
-- **爆款与案例研究报告**：25 部经典影片 × 5 种叙事手法的索引矩阵
+### 凝视的接力 — generational gaze
 
-评估维度里包含 **AI 可行性**——方向②爆款潜力 ★★★★★ 但可行性 ★★★，因为「高空脚手架是 AI 高风险画面，易穿模」。创意再好生成不出来也是零。
+25 classic films × 5 narrative techniques, as an index. One evaluation dimension is **AI feasibility** — a direction can score high for reach and low for feasibility because scaffolding at height is a high-risk frame for generation.
 
-## 四、`cases/` 里反复出现的几条做法
+A good idea that cannot be rendered is still zero.
 
-| 做法 | 解决的问题 |
+## Practices that recur across the cases
+
+| Practice | Problem it solves |
 |---|---|
-| 主锚定 + 跨龄重复骨相特征 | AI 换脸 |
-| 固定 seed + 风格化/怪异度/多样性全压低 | 跨镜不一致 |
-| ASCII 俯视图 + 轴线规则 | 越轴、空间错乱 |
-| 道具连续性表追踪每状态跳变 | 道具凭空变形 |
-| 「不得重建房间」重复声明 | 同一场景生成不同样 |
-| 材质排他句（「不是大理石」） | 静物被生成成石头 |
-| 配音指令四段式 | 角色声音跨镜不一致 |
-| 全片唯一人称表 | 视角歧义引发返工 |
-| 案例 × 手法矩阵 | 找参考片没头绪 |
-| 版本修正记录 | 同一个坑反复踩 |
+| Main anchor + repeated bone structure across ages | face drift |
+| Fixed seed, low stylise/weird/chaos | cross-shot inconsistency |
+| ASCII plan view + axis rules | crossing the line, spatial confusion |
+| Prop continuity table tracing every state change | props mutating between cuts |
+| "Do not rebuild the room" repeated per group | the same place looking different each time |
+| Material exclusion ("not stone") | white objects rendered as marble |
+| Four-part vocal direction | voice drifting across shots |
+| One pronoun table for the whole film | ambiguity causing rework |
+| Film × technique matrix | no starting point when hunting for references |
+| Version correction log | the same mistake made twice |
 
-## 五、关于本套件的定位
+## Standing position
 
-它不是「一键生成短剧」的工具，而是一套**约束系统**——用契约、断言、检查清单把 AI 生成的不确定性压到可接受范围内。
+Two sentences appear across the documents and mean the same thing:
 
-核心信念写在几份文档里，彼此呼应：
+> Not fully automatic. Storyboard and character consistency still need human sign-off — an end-to-end run fails at exactly those two steps, and the rework costs more than checking by hand.
 
-> 不追求全自动。分镜与角色一致性这两个环节仍需人工确认——全自动流程最容易在这两步产出不符合预期的结果，返工成本比手工检查更高。
+> The next one only after the user approves.
 
-> 用户认可才下一个。
+## Related
 
-## 六、相关
+- [Profile](https://github.com/YGtemple) — all projects
+- [ai-film-production (archived)](https://github.com/YGtemple/ai-film-production)
+- [ai-drama-asset-prompts (archived)](https://github.com/YGtemple/ai-drama-asset-prompts)
 
-- [个人主页](https://github.com/YGtemple) —— 全部项目导航
-- [ai-film-production（归档）](https://github.com/YGtemple/ai-film-production)
-- [ai-drama-asset-prompts（归档）](https://github.com/YGtemple/ai-drama-asset-prompts)
+## License
 
-## 许可证
-
-MIT License
+MIT
